@@ -19,7 +19,7 @@ spec:
         name: py-flask
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 5000
       restartPolicy: Always
 ---
 apiVersion: v1
@@ -31,10 +31,10 @@ metadata:
   name: py-flask
 spec:
   ports:
-  - nodePort: 30080
-    name: "80"
-    port: 80
-    targetPort: 80
+  - nodePort: 35000
+    name: "5000"
+    port: 5000
+    targetPort: 5000
   type: NodePort
   selector:
     app: py-flask
