@@ -17,6 +17,7 @@ spec:
       containers:
       - image: luokeychen/concorse-ci-sample
         name: py-flask
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
       restartPolicy: Always
