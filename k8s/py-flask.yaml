@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: py-flask
+    track: v1.0.0
+  name: py-flask
+spec:
+  replicas: 1
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: py-flask
+        track: v1.0.0
+    spec:
+      containers:
+      - image: luokeychen/concorse-ci-sample
+        name: py-flask
+        ports:
+        - containerPort: 80
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: py-flask
+    track: v1.0.0
+  name: py-flask
+spec:
+  ports:
+  - nodePort: 30080
+    name: "80"
+    port: 80
+    targetPort: 80
+  type: NodePort
+  selector:
+    app: py-flask
+    track: v1.0.0
+
