@@ -15,7 +15,7 @@ spec:
         track: v1.0.0
     spec:
       containers:
-      - image: luokeychen/concorse-ci-sample
+      - image: luokeychen/concorse-ci-sample:1.0.0
         name: py-flask
         imagePullPolicy: Always
         ports:
